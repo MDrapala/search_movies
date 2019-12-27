@@ -32,7 +32,7 @@ app.get('/movies', (req, res) => {
             error: 'You must provide a search term'
         })
     } else {
-        apiFilm( req.query.name, (error, { popularity, title, language, pictures, describe } = {}) => {
+        apiFilm( req.query.name, (error, { date, title, language, pictures, describe } = {}) => {
             if (error) {
                 return res.send({ error })
             } 
@@ -42,7 +42,7 @@ app.get('/movies', (req, res) => {
                 title: title,
                 describe: describe,
                 language: language,
-                popularity: popularity,
+                date: date,
                 name: req.query.name
             })
         })

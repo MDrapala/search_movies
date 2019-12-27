@@ -11,11 +11,11 @@ const theMovieDB = (name, callback) => {
             callback('Unable to find movie. Try another search!', undefined)
         } else {
             callback(undefined, {
-                pictures: body.results[0].poster_path,
-                title: body.results[0].title,
-                describe: body.results[0].overview,
-                language: body.results[0].original_language,
-                popularity: body.results[0].popularity    
+                    pictures: body.results[0].poster_path,
+                    title: body.results[0].title,
+                    describe: body.results[0].overview,
+                    language: body.results[0].original_language,
+                    date: body.results[0].release_date
             })
         }
     } )

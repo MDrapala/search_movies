@@ -24,9 +24,9 @@ movieForm.addEventListener('submit', (e) => {
             messageOne.textContent = data.error
         } else {
             messageOne.textContent = data.title
-            messageTwo.textContent = 'src="http://image.tmdb.org/t/p/w500'+ data.pictures + '"'
+            messageTwo.textContent = data.pictures
             messageThree.textContent = data.describe
-            messageFour.textContent = data.popularity
+            messageFour.textContent = data.date
             messageFive.textContent = data.language
         }
     })
