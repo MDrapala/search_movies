@@ -2,17 +2,16 @@
   "name": "searchFilm",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "start": "node src/app.js"
+    "start": "nodemon src/app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mathieu DRAPALA",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "hbs": "^4.0.6",
-    "nodemon": "^2.0.2",
+    "nodemon": "^3.0.1",
     "request": "^2.88.0"
   }
 }

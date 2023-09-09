@@ -1,34 +1,26 @@
-const movieForm = document.querySelector('form')
-const search = document.querySelector('input')
+let textInput = document.getElementById("textInput");
+let title = document.querySelector("#title");
+let pictures = document.querySelector("#pictures");
+let describe = document.querySelector("#describe");
+let date = document.querySelector("#date");
+let error = document.querySelector("#error");
 
-const messageOne = document.querySelector('#message-1')
-const messageTwo = document.querySelector('#message-2')
-const messageThree = document.querySelector('#message-3')
-const messageFour = document.querySelector('#message-4')
-const messageFive = document.querySelector('#message-5')
+textInput.addEventListener("input", (e) => {
+  const inputValue = textInput.value;
 
-movieForm.addEventListener('submit', (e) => {
-    e.preventDefault()
-    
-    const name = search.value
-
-    messageOne.textContent = 'Loading...'
-    messageTwo.textContent = ''
-    messageThree.textContent = ''
-    messageFour.textContent = ''
-    messageFive.textContent = ''
-
-    fetch('/movies?name='+ name).then((response) => {
-    response.json().then((data) => {
-        if (data.error) {
-            messageOne.textContent = data.error
-        } else {
-            messageOne.textContent = data.title
-            messageTwo.textContent = data.pictures
-            messageThree.textContent = data.describe
-            messageFour.textContent = data.date
-            messageFive.textContent = data.language
-        }
+  fetch("/movies?name=" + inputValue)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.error) {
+        error = data.error;
+      } else {
+        error = "";
+        pictures.src = "http://image.tmdb.org/t/p/w500" + data.pictures;
+        title.textContent = data.title;
+        return { pictures, title };
+      }
     })
-})
-})
+    .catch((error) => {
+      console.error(error);
+    });
+});

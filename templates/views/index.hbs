@@ -1,52 +1,43 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <title>{{title}}</title>
-        <link rel="icon" href="/assets/pictures/weather.png">
-        <meta charset='utf-8'>
-
-        <!-- Bootstrap link -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    </head>
-    <body class="container mt-5">
-        <div>
-            {{>header}}
-
-            <p>Rechercher les informations d'un film via son titre!</p>
-
-            <form class="form-inline">
-                <div class="form-group mx-sm-3 mb-2">
-                    <label  class="sr-only">Titre du film</label>
-                    <input type="text" class="form-control" placeholder="Saisir le titre du film">
-                </div>
-                <button type="submit" class="btn btn-success mb-2">Rechercher</button>
-            </form>
-
-            <p id="error"></p>
-            <hr>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p id="message-2"><img src="http://image.tmdb.org/t/p/w500{{pictures}}"></p>
-                </div>
-                <div class="col-sm-6">
-                    <p id="message-1">{{title}}</p>
-                    <p id="message-3">{{describe}}</p>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p id="message-4">{{date}}</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p id="message-5">{{language}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <head>
+    <title>Search movies</title>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/assets/pictures/movies.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="min-h-screen bg-gray-100 flex w-full w-1/2 gap-4">
+      <div class="container bg-indigo-500 rounded-lg p-14">
+        <h1 class="text-center font-bold text-white text-4xl mb-5">Find the
+          perfect movie name</h1>
+        <div
+          class="sm:flex items-center bg-white rounded-lg overflow-hidden px-2 py-1 justify-between"
+        >
+          <input
+            class="text-base text-gray-400 flex-grow outline-none px-2 py-2"
+            type="text"
+            placeholder="Search your movie name"
+            id="textInput"
+          />
         </div>
+      </div>
+      <div class="max-w-2xl">
+        <div
+          class="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700"
+        >
+          <img class="rounded-t-lg p-8" alt="product image" id="pictures" />
+          <div class="px-5 pb-5">
+            <div class="flex items-center justify-between">
+              <span
+                class="text-xl font-bold text-gray-900 dark:text-white"
+                id="title"
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        {{>footer}}
-        <script src="/js/app.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    </body>
+    <script src="/js/app.js"></script>
+  </body>
 </html>
